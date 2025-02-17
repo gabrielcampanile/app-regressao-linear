@@ -25,7 +25,7 @@ def home_page():
     
     #### 📝 Como Usar
     1. Selecione o tipo de regressão desejado no menu lateral
-    2. Insira seus dados ou use os exemplos fornecidos
+    2. Insira seus dados ou importe um arquivo CSV
     3. Explore os gráficos e resultados interativos
     
     #### 💡 Dica
