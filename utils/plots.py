@@ -41,7 +41,7 @@ def adjust_plot_range(X, y, margin_percent=0.1):
     }
 
 def plot_no_repetition(X, y, stats, show_squares, x_name="X", y_name="Y"):
-    """Plota gráfico para regressão sem repetição"""
+    """Plota gráfico para regressão Sem repetição"""
     fig = go.Figure()
     
     # Calcula ranges ajustados
@@ -105,7 +105,7 @@ def plot_no_repetition(X, y, stats, show_squares, x_name="X", y_name="Y"):
         marker=dict(size=10, color='black')
     ))
     
-    # Layout atualizado
+    # Layout atualizado para sem repetição
     fig.update_layout(
         title='Visualização da Regressão Linear sem Repetição',
         xaxis_title=x_name,
@@ -122,14 +122,24 @@ def plot_no_repetition(X, y, stats, show_squares, x_name="X", y_name="Y"):
             range=[plot_range['y_min'], plot_range['y_max']],
             showgrid=True,
             gridwidth=1,
-            gridcolor='LightGray'
-        )
+            gridcolor='LightGray',
+            scaleanchor="x",  # Mantém a mesma escala do eixo x
+            scaleratio=1      # Proporção 1:1 entre os eixos
+        ),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.3,
+            xanchor="center",
+            x=0.5
+        ),
+        margin=dict(b=80)  # Aumenta margem inferior para acomodar a legenda
     )
     
     return fig
 
 def plot_with_repetition(X, y, stats, show_squares, x_name="X", y_name="Y"):
-    """Plota gráfico para regressão com repetição"""
+    """Plota gráfico para regressão Com repetição"""
     fig = go.Figure()
     
     # Calcula ranges ajustados
@@ -223,7 +233,7 @@ def plot_with_repetition(X, y, stats, show_squares, x_name="X", y_name="Y"):
         marker=dict(size=12, color='red', symbol='star')
     ))
     
-    # Layout atualizado
+    # Layout atualizado para com repetição
     fig.update_layout(
         title='Visualização da Regressão Linear com Repetição',
         xaxis_title=x_name,
@@ -238,12 +248,20 @@ def plot_with_repetition(X, y, stats, show_squares, x_name="X", y_name="Y"):
         ),
         yaxis=dict(
             range=[plot_range['y_min'], plot_range['y_max']],
-            scaleanchor="x",
-            scaleratio=1,
             showgrid=True,
             gridwidth=1,
-            gridcolor='LightGray'
-        )
+            gridcolor='LightGray',
+            scaleanchor="x",  # Mantém a mesma escala do eixo x
+            scaleratio=1      # Proporção 1:1 entre os eixos
+        ),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.3,
+            xanchor="center",
+            x=0.5
+        ),
+        margin=dict(b=80)  # Aumenta margem inferior para acomodar a legenda
     )
     
     return fig
